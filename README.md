@@ -17,3 +17,9 @@
 > + 通过 `new String(param.getbyte("ISO-8859-1"), "utf-8")`
 > + 通过 `request.setCharacterEncoding("utf-8")`
 >> 如果Tomcat版本高的话，get方法不存在中文乱码问题
+
+### 3. 学习jsp的第三个小demo
+
+这个例子写了测试session属性的登陆小栗子，功能：
++ 在登陆界面判断是否输入正确的账号密码
++ 在 `welcome.jsp`页面上可以注销
