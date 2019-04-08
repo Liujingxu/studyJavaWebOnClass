@@ -1,41 +1,36 @@
-<%--
+<%@ page import="com.nuc.studyJavaWeb.entity.Register" %><%--
   Created by IntelliJ IDEA.
   User: lenovo
-  Date: 2019/3/25
-  Time: 18:21
+  Date: 2019/4/8
+  Time: 16:33
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>菜单</title>
+    <title>注册</title>
 </head>
 <body>
+<jsp:useBean id="register" class="com.nuc.studyJavaWeb.entity.Register" scope="request"/>
 
-    <h1>javaweb课堂小栗子</h1>
-
-    <%
-        request.setCharacterEncoding("utf-8");
-        String[] likes = request.getParameterValues("like");
-    %>
-
-    <ul>
-        <li><%=request.getParameter("trueName")%></li>
-        <li><%=request.getParameter("gender")%></li>
-        <li>
-            <%
-                for (int i = 0; i < likes.length;i++){
-                    out.print("<em>" + likes[i] + "</em>　　");
-                }
-            %>
-        </li>
-    </ul>
-
-    <ul>
-        <li><a href="cacular.jsp">计算器</a></li>
-        <li><a href="testCharset.jsp?param=测试">测试get请求的中文乱码问题</a></li>
-        <li><a href="login2.jsp">测试session</a> </li>
-    </ul>
+<form action="check.jsp" method="post">
+    <label>姓名：</label>
+    <input type="text" name="name" value="<jsp:getProperty name="register" property="name"/>" />
+    <em style="color: red"><%=register.showErrorMessage("name")%><%=register.showErrorMessage("nullName")%>
+    </em>
+    <br/>
+    <label>年龄：</label>
+    <input type="text" name="age" value="<jsp:getProperty name="register" property="age" />" />
+    <em style="color: red"><%=register.showErrorMessage("age")%><%=register.showErrorMessage("nullAge")%>
+    </em>
+    <br/>
+    <label>E-mail：</label>
+    <input type="text" name="email" value="<jsp:getProperty name="register" property="email"/>" />
+    <em style="color: red"><%=register.showErrorMessage("email")%><%=register.showErrorMessage("nullEmail")%>
+    </em>
+    <br/>
+    <input type="submit" value="提交" />
+</form>
 
 </body>
 </html>
