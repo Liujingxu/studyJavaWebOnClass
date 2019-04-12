@@ -21,11 +21,8 @@
         response.sendRedirect("success.jsp");
     }else {
         request.setAttribute("register", register);
-        request.setAttribute("s", "s");
         %>
-<jsp:forward page="index.jsp" >
-    <jsp:param name="isFirst" value="true"/>
-</jsp:forward>
+<jsp:forward page="index.jsp" />
 <%
     }
 %>
