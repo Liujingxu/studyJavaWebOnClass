@@ -35,6 +35,7 @@
         <li><a href="cacular.jsp">计算器</a></li>
         <li><a href="testCharset.jsp?param=测试">测试get请求的中文乱码问题</a></li>
         <li><a href="login2.jsp">测试session</a> </li>
+        <li><a href="testApplication.jsp">测试访问人数</a></li>
     </ul>
 
 </body>
