@@ -36,3 +36,26 @@
 <jsp:useBean id="register" class="com.nuc.studyJavaWeb.entity.Register" scope="request"/>
 ```
  > 这个语句代表的意义是在request作用下的 `Register` 对象， 而不是创建一个Register的对象。因此在第一次进入页面时，它创建了一个新的javaBean，此时该Bean的属性值全为null。在第二次转发到这个页面时，这个javaBean代表的是在此作用域下的Bean。所以它的属性值为经过 `check.jsp`进行封装后的Bean。
+ 
+ ### 5. 学习jsp的第五个demo
+ 
+  这个例子写的在 *jsp*页面上进行JDBC 数据库操作，首先加入所用的 *mysql* jar 包 `mysql-connector-java-8.0.13.jar`，加在 **web -> WEB-INF -> lib**目录下
+  
+  #### 数据库查询流程
+   1. 注册 `Class.forName("com.mysql.cj.jdbc.Driver");
+   2. 得到连接 `Connection connection = DriverManager.getConnection(url, user, password);  `
+   3. 得到 *Statement* 对象 ` PreparedStatement ps = connection.prepareStatement(sql);`
+   4. 得到查询结果对象 `ResultSet resultSet = ps.executeQuery();`
+   5. 得到结果
+       ```
+        try {
+                   ResultSet resultSet = ps.executeQuery();
+                   if (resultSet.next()) {
+                        car = new Car(resultSet.getInt(1), resultSet.getString(2), resultSet.getFloat(3));         // 封装对象
+                       System.out.println(car);
+                   }
+       
+               } catch (SQLException e) {
+                   e.printStackTrace();
+               }
+        ```
