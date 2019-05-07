@@ -37,6 +37,12 @@ public class AddServlet extends HttpServlet {
             request.getRequestDispatcher("success.jsp").forward(request, response);
         }else {
                 out.println("邀请失败，5秒后跳转...");
+            try {
+                Thread.sleep(1000);
+                response.sendRedirect("index.jsp");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
