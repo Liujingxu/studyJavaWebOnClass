@@ -59,3 +59,5 @@
                    e.printStackTrace();
                }
         ```
+   ###6. 一个完整的mvc实例
+   　　该实例根据老师上课的dao层小栗子改编，添加了service层和controller层。
