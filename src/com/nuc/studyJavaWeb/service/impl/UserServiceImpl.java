@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
     public Integer getId() {
         return userProxy.getLastId();
     }
+
+    @Override
+    public void close() {
+        userProxy.close();
+    }
 }

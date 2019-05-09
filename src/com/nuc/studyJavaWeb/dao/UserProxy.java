@@ -40,4 +40,9 @@ public class UserProxy implements UserDao {
     public Integer getLastId() {
         return userDao.getLastId();
     }
+
+
+    public void close(){
+        dbConnection.close();
+    }
 }

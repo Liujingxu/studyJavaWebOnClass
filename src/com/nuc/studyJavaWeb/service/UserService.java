@@ -13,4 +13,6 @@ public interface UserService {
     public boolean addUser(User user);
 
     public Integer getId();
+
+    public void close();
 }
