@@ -14,7 +14,7 @@
 <jsp:useBean id="register" class="com.nuc.studyJavaWeb.entity.Register" scope="request"/>
 
 <form action="check.jsp" method="post">
-    <label>姓名：</label>
+    <label>用户名：</label>
     <input type="text" name="name" value="<jsp:getProperty name="register" property="name"/>" />
     <em style="color: red"><%=register.showErrorMessage("name")%><%=register.showErrorMessage("nullName")%>
     </em>
